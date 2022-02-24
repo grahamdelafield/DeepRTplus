@@ -1,5 +1,5 @@
-train_path = 'data/mod_train_2.txt' # 'data/mod_train_2.txt' 
-test_path = 'data/mod_test_2.txt' 
+train_path = '../data/rt_prediction/peaks_peptides_train.txt' # 'data/mod_train_2.txt' 
+test_path = '../data/rt_prediction/peaks_peptides_test.txt' 
 result_path = 'result/mod_test_2.pred.txt'
 log_path = 'result/mod_test_2.log'
 save_prefix = 'epochs'
@@ -11,9 +11,9 @@ conv2_kernel = 10
 
 # add after main analysis and heatmap analysis done:
 min_rt = 0
-max_rt = 110 # 70 # 110 # 264
+max_rt = 130 # 70 # 110 # 264
 time_scale = 60 # 1 # 60
-max_length = 50
+max_length = 65
 
 # dia params:
 '''
