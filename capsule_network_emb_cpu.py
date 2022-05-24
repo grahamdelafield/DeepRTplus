@@ -623,7 +623,7 @@ if __name__ == "__main__":
                 state['epoch'], meter_loss.value()[0], 7)) # meter_mse.value()
 
         if 10 <= state['epoch']: # for heatmap
-            torch.save(model.state_dict(), '../data/rt_prediction/generated_model'+'/epoch_%d.pt' % state['epoch'])
+            torch.save(model.state_dict(), '../data/cross_validation'+'/epoch_%d.pt' % state['epoch'])
             print('>> model: saved.')        
 
         # prediction:
