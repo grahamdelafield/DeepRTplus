@@ -1,8 +1,8 @@
-train_path = '../data/rt_prediction/QC_peptides_train.txt' # 'data/mod_train_2.txt' 
-test_path = '../data/rt_prediction/QC_peptides_test.txt' 
-result_path = 'result/mod_test_2.pred.txt'
-log_path = 'result/qc_peptides.log'
-save_prefix = 'epochs'
+train_path = '../data/cross_validation/set_1/train_1.txt' # 'data/mod_train_2.txt' 
+test_path = '../data/cross_validation/set_1/test_1.txt' 
+result_path = '../data/cross_validation/set_1/set_1.pred.txt'
+log_path = '../data/cross_validation/set_1/set_1.log'
+save_prefix = 'set_1_epochs'
 pretrain_path = '' # 'param/dia_all_epo20_dim24_conv10/dia_all_epo20_dim24_conv10_filled.pt' # 'param/dia_all_trans_mod_epo20_dim24_conv10.pt' 
 dict_path = '' # 'data/mod.txt'
 
