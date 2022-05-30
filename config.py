@@ -13,7 +13,7 @@ conv2_kernel = 10
 min_rt = 0
 max_rt = 130 # 70 # 110 # 264
 time_scale = 60 # 1 # 60
-max_length = 61
+max_length = 65
 
 # dia params:
 '''

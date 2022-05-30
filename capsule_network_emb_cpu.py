@@ -279,7 +279,9 @@ class CapsuleNet(nn.Module):
             x = self.digit_capsules(x).squeeze().transpose(0, 1) # DeepRT
             # [10, batch, 1, 1, 16] -> squeeze: [10, batch, 16] -> transpose: [batch, 10, 16]
         if 1 == param['dim']:
-            x = self.digit_capsules(x).squeeze()[:, None, :]
+            # when training this was set to x = self.digit_capsules(x).squeeze()[:, None, :]
+            # when testing, it is set as follows
+            x = self.digit_capsules(x).squeeze()[None, :]
             # [1, batch, 1, 1, 16] -> squeeze: [batch, 16]
         # print('>>dim: digit_capsules', x.shape) # [batch, 10, 16]
 
