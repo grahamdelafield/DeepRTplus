@@ -146,6 +146,7 @@ class CapsuleLayer(nn.Module):
                     delta_logits = (priors * outputs).sum(dim=-1, keepdim=True)
                     logits = logits + delta_logits
         else:
+            # print([x.size for capsule in self.capsules])
             outputs = [capsule(x).view(x.size(0), -1, 1) for capsule in self.capsules]
             outputs = torch.cat(outputs, dim=-1)
             outputs = self.squash(outputs)
@@ -279,9 +280,10 @@ class CapsuleNet(nn.Module):
             x = self.digit_capsules(x).squeeze().transpose(0, 1) # DeepRT
             # [10, batch, 1, 1, 16] -> squeeze: [10, batch, 16] -> transpose: [batch, 10, 16]
         if 1 == param['dim']:
-            # when training this was set to x = self.digit_capsules(x).squeeze()[:, None, :]
+            # when training this was set to 
+            x = self.digit_capsules(x).squeeze()[:, None, :]
             # when testing, it is set as follows
-            x = self.digit_capsules(x).squeeze()[None, :]
+            # x = self.digit_capsules(x).squeeze()[None, :]
             # [1, batch, 1, 1, 16] -> squeeze: [batch, 16]
         # print('>>dim: digit_capsules', x.shape) # [batch, 10, 16]
 
@@ -625,7 +627,7 @@ if __name__ == "__main__":
                 state['epoch'], meter_loss.value()[0], 7)) # meter_mse.value()
 
         if 10 <= state['epoch']: # for heatmap
-            torch.save(model.state_dict(), '../data/cross_validation'+'/epoch_%d.pt' % state['epoch'])
+            torch.save(model.state_dict(), '../models/PEAKS'+'/epoch_%d.pt' % state['epoch'])
             print('>> model: saved.')        
 
         # prediction:
