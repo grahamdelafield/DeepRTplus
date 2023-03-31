@@ -586,6 +586,8 @@ if __name__ == "__main__":
 
     def on_end_epoch(state):
         if 2 == param['dim']:
+            with open('../models/'+'/error_log.txt', 'a') as f:
+                f.write('Epoch %d Training Loss\t%.4f' % (state['epoch'], meter_loss.value()[0]))
             print('[Epoch %d] Training Loss: %.4f (Accuracy: %.2f%%)' % (
                 state['epoch'], meter_loss.value()[0], meter_accuracy.value()[0]))
             flog.write('[Epoch %d] Training Loss: %.4f (Accuracy: %.2f%%)\n' % (
@@ -594,6 +596,8 @@ if __name__ == "__main__":
                 train_loss_logger.log(state['epoch'], meter_loss.value()[0])
                 train_error_logger.log(state['epoch'], meter_accuracy.value()[0])
         if 1 == param['dim']:
+            with open('../models/'+'/error_log.txt', 'a') as f:
+                f.write('Epoch %d Training Loss\t%.4f' % (state['epoch'], meter_loss.value()[0]))
             print('[Epoch %d] Training Loss: %.4f (MSE: %.4f)' % (
                 state['epoch'], meter_loss.value()[0], 7)) # meter_mse.value()
             flog.write('[Epoch %d] Training Loss: %.4f (MSE: %.4f)\n' % (
@@ -616,18 +620,22 @@ if __name__ == "__main__":
                 test_accuracy_logger.log(state['epoch'], 7) # meter_mse.value()
 
         if 2 == param['dim']:
+            with open('../models/'+'/error_log.txt', 'a') as f:
+                f.write('Epoch %d Testing Loss\t%.4f' % (state['epoch'], meter_loss.value()[0]))
             print('[Epoch %d] Testing Loss: %.4f (Accuracy: %.2f%%)' % (
                 state['epoch'], meter_loss.value()[0], meter_accuracy.value()[0]))
             flog.write('[Epoch %d] Testing Loss: %.4f (Accuracy: %.2f%%)\n' % (
                 state['epoch'], meter_loss.value()[0], meter_accuracy.value()[0]))
         if 1 == param['dim']:
+            with open('../models/'+'/error_log.txt', 'a') as f:
+                f.write('Epoch %d Testing Loss\t%.4f' % (state['epoch'], meter_loss.value()[0]))
             print('[Epoch %d] Testing Loss: %.4f (MSE: %.4f)' % (
                 state['epoch'], meter_loss.value()[0], 7)) # meter_mse.value()
             flog.write('[Epoch %d] Testing Loss: %.4f (MSE: %.4f)\n' % (
                 state['epoch'], meter_loss.value()[0], 7)) # meter_mse.value()
 
         if 10 <= state['epoch']: # for heatmap
-            torch.save(model.state_dict(), '../models/PEAKS'+'/epoch_%d.pt' % state['epoch'])
+            torch.save(model.state_dict(), '../models/'+'/epoch_%d.pt' % state['epoch'])
             print('>> model: saved.')        
 
         # prediction:
