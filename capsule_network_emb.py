@@ -572,7 +572,7 @@ if __name__ == "__main__":
         if 2 == param['dim']:
             meter_accuracy.add(state['output'].data, torch.LongTensor(state['sample'][1]))
             confusion_meter.add(state['output'].data, torch.LongTensor(state['sample'][1]))
-        meter_loss.add(state['loss'].data[0])
+        meter_loss.add(state['loss'].item()])
 
 
     def on_start_epoch(state):
@@ -623,7 +623,7 @@ if __name__ == "__main__":
                 state['epoch'], meter_loss.value()[0], 7)) # meter_mse.value()
 
         if 10 <= state['epoch']: # for heatmap
-            torch.save(model.state_dict(), save_prefix+'/epoch_%d.pt' % state['epoch'])
+            torch.save(model.state_dict(), '../models/'+'/epoch_%d.pt' % state['epoch'])
             print('>> model: saved.')        
 
         # prediction:
