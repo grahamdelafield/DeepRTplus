@@ -1,7 +1,7 @@
-train_path = '../data/rt_prediction/training.txt' # 'data/mod_train_2.txt' 
-test_path = '../data/rt_prediction/testing.txt' 
-result_path = '../data/rt_prediction/pred.txt'
-log_path = '../data/rt_prediction/pred.log'
+train_path = '../data/ModelTraining/training_data.txt' # 'data/mod_train_2.txt' 
+test_path = '../data/ModelTraining/testing_data.txt' 
+result_path = '../data/ModelTraining/pred.txt'
+log_path = '../data/ModelTraining/pred.log'
 save_prefix = 'peaks_epochs'
 pretrain_path = '' # 'param/dia_all_epo20_dim24_conv10/dia_all_epo20_dim24_conv10_filled.pt' # 'param/dia_all_trans_mod_epo20_dim24_conv10.pt' 
 dict_path = '' # 'data/mod.txt'
@@ -11,9 +11,9 @@ conv2_kernel = 10
 
 # add after main analysis and heatmap analysis done:
 min_rt = 0
-max_rt = 80 # 70 # 110 # 264
+max_rt = 150 # 70 # 110 # 264
 time_scale = 60 # 1 # 60
-max_length = 49
+max_length = 65
 
 # dia params:
 '''
