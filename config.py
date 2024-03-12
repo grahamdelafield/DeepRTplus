@@ -1,5 +1,5 @@
-train_path = '../data/ModelTraining/training_data.txt' # 'data/mod_train_2.txt' 
-test_path = '../data/ModelTraining/testing_data.txt' 
+train_path = '../data/ModelTraining/better_training_data.txt' # 'data/mod_train_2.txt' 
+test_path = '../data/ModelTraining/better_testing_data.txt' 
 result_path = '../data/ModelTraining/pred.txt'
 log_path = '../data/ModelTraining/pred.log'
 save_prefix = 'peaks_epochs'
